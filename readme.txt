@@ -26,9 +26,9 @@ Related Links:
 == Installation ==
 
 1. Upload the `contact-form-with-captcha` directory to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to the `Contact Form With Captcha` Admin section and enter your reCAPTCHA private and public keys, and recipient email address
-1. Use the shortcode `[cfwc]` in any of your posts or pages
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go to the `Contact Form With Captcha` Admin section and enter your reCAPTCHA private and public keys, and recipient email address
+4. Use the shortcode `[cfwc]` in any of your posts or pages
 
 == ChangeLog ==
 
