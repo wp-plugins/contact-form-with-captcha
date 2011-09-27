@@ -1,0 +1,20 @@
+/*
+
+
+Copyright 2011-2020 Teknocrat
+
+
+*/
+
+
+#cfwc_contactform { margin: 0px; border: 0px;}
+
+.cfwc_table { margin: 0px; border: 0px;}
+
+.cfwc_cleanformdata { border-bottom:0px;border-right:0px; }
+
+.cfwc_formdata { width: 100px; vertical-align:top; }
+
+.cfwc_inputdata { width: 310px; }
+
+.cfwc_textdata { width: 310px; height: 100px; }
