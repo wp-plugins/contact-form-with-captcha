@@ -44,11 +44,8 @@ function plugin_options_page() {
 	<h2>Contact Form With Captcha Plugin Menu</h2>
 	Options relating to the Contact Form With Captcha Plugin Plugin.
 	<form action="options.php" method="post">
-		<?php settings_fields('key_value'); ?>
-            <?php settings_fields('public_key_value'); ?>
-            <?php settings_fields('cfwc_to_value'); ?>
-
-		<?php do_settings_sections('contact-form-with-captcha'); ?>
+            <?php settings_fields('cfwc_options_group'); ?>
+            <?php do_settings_sections('contact-form-with-captcha'); ?>
 	<input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes'); ?>" />
 	</form>
 </div>
@@ -62,16 +59,15 @@ add_action('admin_init', 'plugin_admin_init');
 
 function plugin_admin_init(){
 
-	register_setting( 'key_value', 'key_value', 'plugin_options_validate' );
-	register_setting( 'public_key_value', 'public_key_value', 'plugin_options_validate' );
-	register_setting( 'cfwc_to_value', 'cfwc_to_value', 'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_private_key_value', 'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_public_key_value',  'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_to_value',          'plugin_options_validate' );
 
 	add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'contact-form-with-captcha');
 
-	add_settings_field('private_key_field_id', 'Specify your private key',  'private_key_field_callback', 'contact-form-with-captcha', 'plugin_main');
-	add_settings_field('public_key_field_id',  'Specify your public key',   'public_key_field_callback',  'contact-form-with-captcha', 'plugin_main');
+	add_settings_field('cfwc_private_key_field_id', 'Specify your private key',  'cfwc_private_key_field_callback', 'contact-form-with-captcha', 'plugin_main');
+	add_settings_field('cfwc_public_key_field_id',  'Specify your public key',   'cfwc_public_key_field_callback',  'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_to_field_id',     'Specify your email address','cfwc_to_field_callback',     'contact-form-with-captcha', 'plugin_main');
-
 
 
 }
@@ -89,17 +85,17 @@ function cfwc_to_field_callback() {
 
 }
 
-function private_key_field_callback() {
+function cfwc_private_key_field_callback() {
 
-	$options = get_option('key_value');
-	echo "<input id='private_key_field_id' name='key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+	$options = get_option('cfwc_private_key_value');
+	echo "<input id='cfwc_private_key_field_id' name='cfwc_private_key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
 
 }
 
-function public_key_field_callback()  {
+function cfwc_public_key_field_callback()  {
 
-      $options = get_option('public_key_value');
-      echo "<input id='public_key_field_id' name='public_key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+      $options = get_option('cfwc_public_key_value');
+      echo "<input id='cfwc_public_key_field_id' name='cfwc_public_key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
 }
 
 // validate our options
@@ -112,7 +108,7 @@ function plugin_options_validate($input) {
 	return $newinput;
 }
 
-// [cfcw publickey="abc" privatekey="def"]
+// [cfwc publickey="abc" privatekey="def"]
 
 add_shortcode( 'cfwc', 'cfwc_func' );
 function cfwc_func( $atts ) {
@@ -121,8 +117,8 @@ function cfwc_func( $atts ) {
 		'privatekey' => 'something else',
 	), $atts ) );
       
-	$privatekey = get_option('key_value');
-      $publickey  = get_option('public_key_value');
+      $privatekey = get_option('cfwc_private_key_value');
+      $publickey  = get_option('cfwc_public_key_value');
       $cfwc_to    = get_option('cfwc_to_value');
       $privatekey = $privatekey['text_string'] ;
       $publickey  = $publickey['text_string'] ;
