@@ -112,7 +112,14 @@ if(document.getElementById("recaptcha_response_field").value=="")
             <td class="cfwc_cleanformdata"></td>
             <td class="cfwc_cleanformdata">
          <?
-            echo recaptcha_get_html($publickey, $error);
+            if ($publickey != null)
+            {
+                echo recaptcha_get_html($publickey, $error);
+            }
+            else
+            {
+                echo "To use reCAPTCHA you must get an API key from <a href='https://www.google.com/recaptcha/admin/create'>https://www.google.com/recaptcha/admin/create</a> and enter it from the plugin menu";
+            }
          ?>
             </td>
          </tr>
