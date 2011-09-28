@@ -21,6 +21,7 @@ the email.
 Related Links:
 
 * <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Homepage</a>
+* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Support Page</a>
 
 
 == Installation ==
