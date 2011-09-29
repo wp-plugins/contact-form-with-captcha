@@ -43,7 +43,7 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_contents .= "<br><br>" . $_POST["contact_message"];    
                     $email_contents .= "</html>";
  
-                    if (mail($email_recipient, $email_subject, $email_contents, $email_header))
+                    if (mail($email_recipient, $email_subject, $email_contents, $email_header, '-f'.$email_return_to))
                     {      
                         echo "<center><h2>Thank you for contacting us!</h2></center>";
                     }       
