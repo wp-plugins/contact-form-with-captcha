@@ -1,37 +1,44 @@
-=== Contact Form With Captcha (CFWC)===
+=== Contact Form With Captcha ===
 Contributors: zackhasit
 Donate link: http://www.teknocrat.com/
-Tags: recaptcha form, recaptcha contact form, contact, form, contact form, recaptcha, antispam, captcha
+Tags: recaptcha form, recaptcha contact form, contact, form, contact form, recaptcha, antispam, captcha, contact form with captcha
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: 1.0
+Stable tag: 1.1
 
-This wordpress plugin allows you to use a Google reCAPTCHA contact form on your blog. It requires PHP 5.0 or later.
+Contact form with captcha plugin allows you to use a Google reCAPTCHA contact form on your blog. It requires PHP 5.0 or later.
 
 == Description ==
 
-A simple plugin for your WordPress blog that enables you to have a contact form with the reCAPTCHA challenge system.
+Contact form with captcha is great plugin for your WordPress blog that enables you to have a contact form 
+with the reCAPTCHA challenge system.
 
-All you have to do is install and activate the plugin, enter your reCAPTCHA keys in the Admin section, and place the 
-shortcode `[cfwc]` on any page or post within your blog.
+All you have to do is install and activate the plugin, enter your reCAPTCHA keys and recipient email address 
+in the Admin section (and other optional fields), and place the shortcode `[cfwc]` on any page or post within 
+your blog.
 
-The form asks users for their name, email address, subject and message.  The plugin will validate email address before sending 
-the email.
+The form asks users for their name, email address, subject and message. The plugin will validate email address
+before sending the email.
 
 Related Links:
 
 * <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Homepage</a>
 * <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Support Page</a>
+* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Donation Page</a>
 
 
 == Installation ==
 
 1. Upload the `contact-form-with-captcha` directory to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to the `Contact Form With Captcha` Admin section and enter your reCAPTCHA private and public keys, and recipient email address
+3. Go to the `Contact Form With Captcha` Admin section and enter your reCAPTCHA private and public keys and recipient email address ( and any optional parameters )
 4. Use the shortcode `[cfwc]` in any of your posts or pages
 
 == ChangeLog ==
+
+= Version 1.1 =
+
+* Added option to specify subject drop down menu
 
 = Version 1.0 =
 
@@ -39,7 +46,7 @@ Related Links:
 
 == Frequently Asked Questions ==
 
-= Where Can I Use The reCAPTCHA Form? =
+= Where Can I Use The contact Form with captcha? =
 
 You can use it in any post or page by inserting the shortcode `[cfwc]`
 
@@ -55,4 +62,5 @@ form - this is because you cannot display more than one reCAPTCHA form on the sa
 
 == Screenshots ==
 
-1. The Contact Form With Captcha
+1. The Contact Form With Captcha 1
+2. The Contact Form With Captcha 2
