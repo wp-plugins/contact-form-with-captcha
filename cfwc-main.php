@@ -117,6 +117,7 @@ function cfwc_func( $atts ) {
 		'privatekey' => 'something else',
 	), $atts ) );
       
+      ob_start();
       $privatekey = get_option('cfwc_private_key_value');
       $publickey  = get_option('cfwc_public_key_value');
       $cfwc_to    = get_option('cfwc_to_value');
@@ -125,5 +126,10 @@ function cfwc_func( $atts ) {
       $cfwc_to    = $cfwc_to['text_string'];
 
       include(WP_PLUGIN_DIR . '/contact-form-with-captcha/cfwc-form.php');
+    
+      $output_string=ob_get_contents();
+      ob_end_clean();
+
+      return $output_string;
 }
 ?>

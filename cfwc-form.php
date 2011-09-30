@@ -86,31 +86,31 @@ if(document.getElementById("recaptcha_response_field").value=="")
 <div id="cfwc_contactform">
 <form action="" method="POST" name="ContactForm" onsubmit="return check();">
 
-<table class="cfwc_table">
+<table>
        <tbody>
          <tr>
-             <td class="cfwc_cleanformdata cfwc_formdata">Full Name:</td>
-             <td class="cfwc_cleanformdata"><input name="contact_name" class="cfwc_inputdata" type="text"></td>
+             <td>Full Name:</td>
+             <td><input name="contact_name" type="text"></td>
          </tr>
-         <tr><td class="cfwc_cleanformdata">&nbsp;&nbsp;</td></tr>
+         <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-             <td class="cfwc_cleanformdata cfwc_formdata">E-mail:</td>
-             <td class="cfwc_cleanformdata"><input id="contact_email" name="contact_email" class="cfwc_inputdata" type="text"></td>
+             <td>E-mail:</td>
+             <td><input id="contact_email" name="contact_email" type="text"></td>
          </tr>
-         <tr><td class="cfwc_cleanformdata" >&nbsp;&nbsp;</td></tr>
+         <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-             <td class="cfwc_cleanformdata cfwc_formdata">Subject:</td>
-             <td class="cfwc_cleanformdata"><input name="contact_subject" class="cfwc_inputdata" type="text"></td>
+             <td>Subject:</td>
+             <td><input name="contact_subject" class="cfwc_inputdata" type="text"></td>
          </tr>
-         <tr><td class="cfwc_cleanformdata" >&nbsp;&nbsp;</td></tr>
+         <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-             <td class="cfwc_cleanformdata cfwc_formdata">Message: </td>
-             <td class="cfwc_cleanformdata"><a name="s" id="s"></a><textarea name="contact_message" id="contact_message" class="cfwc_textdata"></textarea></td>
+             <td>Message: </td>
+             <td><a name="s" id="s"></a><textarea name="contact_message" id="contact_message"></textarea></td>
          </tr>
-         <tr><td class="cfwc_cleanformdata">&nbsp;&nbsp;</td></tr>       
+         <tr><td>&nbsp;&nbsp;</td></tr>       
          <tr>
-            <td class="cfwc_cleanformdata"></td>
-            <td class="cfwc_cleanformdata">
+            <td></td>
+            <td>
          <?
             if ($publickey != null)
             {
@@ -123,12 +123,12 @@ if(document.getElementById("recaptcha_response_field").value=="")
          ?>
             </td>
          </tr>
-         <tr><td class="cfwc_cleanformdata">&nbsp;&nbsp;</td></tr>
+         <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-            <td class="cfwc_cleanformdata"></td>
-            <td class="cfwc_cleanformdata">
-             <input name="Contact_Send" class="cfwc_inputdata" value="SendMessage" type="submit">
-             <input name="SendMessage" value="1" type="hidden">
+            <td></td>
+            <td>
+             <input name="Contact_Send" value="SendMessage" type="submit">
+             <input name="SendMessage"  value="1" type="hidden">
             </td>
          </tr>
      </tbody>

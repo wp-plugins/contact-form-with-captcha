@@ -7,14 +7,12 @@ Copyright 2011-2020 Teknocrat
 */
 
 
-#cfwc_contactform { margin: 0px; border: 0px;}
+#cfwc_contactform          { margin: 0px; border: 0px;}
 
-.cfwc_table { margin: 0px; border: 0px;}
+#cfwc_contactform table    { margin: 0px; border: 0px;}
 
-.cfwc_cleanformdata { border-bottom:0px;border-right:0px; }
+#cfwc_contactform td       { border:0px; width: 100px; vertical-align:top; }
 
-.cfwc_formdata { width: 100px; vertical-align:top; }
+#cfwc_contactform input    { width: 310px; }
 
-.cfwc_inputdata { width: 310px; }
-
-.cfwc_textdata { width: 310px; height: 100px; }
+#cfwc_contactform textarea { width: 310px; height: 100px; }
