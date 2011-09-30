@@ -100,7 +100,24 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
              <td>Subject:</td>
-             <td><input name="contact_subject" class="cfwc_inputdata" type="text"></td>
+             <td>
+             <?
+                 if ($cfwc_subject == null)
+                 {
+                     echo '<input name="contact_subject" class="cfwc_inputdata" type="text">';
+                 }
+                 else
+                 {
+                     $subject_tok = explode(":",$cfwc_subject);
+                     echo '<select name="contact_subject">';
+                     foreach ($subject_tok as $v) 
+                     {
+                         echo '<option value="' . $v . '">' . $v . '</option>';
+                     }
+                     echo '</select>';
+                 }
+             ?>
+             </td>
          </tr>
          <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>

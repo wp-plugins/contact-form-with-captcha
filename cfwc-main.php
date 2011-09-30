@@ -3,8 +3,8 @@
 Plugin Name: Contact Form With Captcha (CFWC)
 Plugin URI: http://www.teknocrat.com/
 Description: Creates a contact form with captcha (CFWC)
-Version: 1.00
-Date: 01 Sep 2011
+Version: 1.1
+Date: 29 Sep 2011
 Author: Tecknocrat
 Author URI: http://www.teknocrat.com/
 
@@ -32,7 +32,13 @@ add_action('admin_menu', 'plugin_admin_add_page');
 
 function plugin_admin_add_page() {
 
-	add_options_page('Contact Form With Captcha Plugin Page', 'Contact Form With Captcha', 'manage_options', 'contact-form-with-captcha', 'plugin_options_page');
+	add_options_page(
+                       'Contact Form With Captcha Plugin Page', 
+                       'Contact Form With Captcha', 
+                       'manage_options', 
+                       'contact-form-with-captcha', 
+                       'plugin_options_page'
+                      );
 
 }
 
@@ -62,12 +68,14 @@ function plugin_admin_init(){
 	register_setting( 'cfwc_options_group', 'cfwc_private_key_value', 'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_public_key_value',  'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_to_value',          'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_subject_value',     'plugin_options_validate' );
 
 	add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'contact-form-with-captcha');
 
 	add_settings_field('cfwc_private_key_field_id', 'Specify your private key',  'cfwc_private_key_field_callback', 'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_public_key_field_id',  'Specify your public key',   'cfwc_public_key_field_callback',  'contact-form-with-captcha', 'plugin_main');
-	add_settings_field('cfwc_to_field_id',     'Specify your email address','cfwc_to_field_callback',     'contact-form-with-captcha', 'plugin_main');
+	add_settings_field('cfwc_to_field_id',          'Specify your email address','cfwc_to_field_callback',          'contact-form-with-captcha', 'plugin_main');
+	add_settings_field('cfwc_subject_field_id',     'Specify predefined subject for drop down menu (Use : between different options)','cfwc_subject_field_callback', 'contact-form-with-captcha', 'plugin_main');
 
 
 }
@@ -98,6 +106,13 @@ function cfwc_public_key_field_callback()  {
       echo "<input id='cfwc_public_key_field_id' name='cfwc_public_key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
 }
 
+function cfwc_subject_field_callback()  {
+
+      $options = get_option('cfwc_subject_value');
+      echo "<input id='cfwc_subject_field_id' name='cfwc_subject_value[text_string]' size='100' type='text' value='{$options['text_string']}' />";
+}
+
+
 // validate our options
 function plugin_options_validate($input) {
 
@@ -118,12 +133,16 @@ function cfwc_func( $atts ) {
 	), $atts ) );
       
       ob_start();
-      $privatekey = get_option('cfwc_private_key_value');
-      $publickey  = get_option('cfwc_public_key_value');
-      $cfwc_to    = get_option('cfwc_to_value');
-      $privatekey = $privatekey['text_string'] ;
-      $publickey  = $publickey['text_string'] ;
-      $cfwc_to    = $cfwc_to['text_string'];
+      $privatekey   = get_option('cfwc_private_key_value');
+      $publickey    = get_option('cfwc_public_key_value');
+      $cfwc_to      = get_option('cfwc_to_value');
+      $cfwc_subject = get_option('cfwc_subject_value');
+
+      $privatekey   = $privatekey['text_string'] ;
+      $publickey    = $publickey['text_string'] ;
+      $cfwc_to      = $cfwc_to['text_string'];
+      $cfwc_subject = $cfwc_subject['text_string'];
+
 
       include(WP_PLUGIN_DIR . '/contact-form-with-captcha/cfwc-form.php');
     
