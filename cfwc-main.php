@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Contact Form With Captcha (CFWC)
+Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teknocrat.com/
-Description: Creates a contact form with captcha (CFWC)
-Version: 1.1
-Date: 29 Sep 2011
+Description: Creates a contact form with captcha. For more details you can visit <a href="http://www.teknocrat.com"><strong>Technology Blog</strong></a>.
+Version: 1.2
+Date: 30 Sep 2011
 Author: Tecknocrat
 Author URI: http://www.teknocrat.com/
 

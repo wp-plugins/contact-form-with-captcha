@@ -1,5 +1,5 @@
 <?php
-include(WP_PLUGIN_DIR . '/contact-form-with-captcha/captcha/recaptchalib.php');
+if(!is_callable('recaptcha_check_answer')) require_once(WP_PLUGIN_DIR . '/contact-form-with-captcha/captcha/recaptchalib.php');
 // Get a key from https://www.google.com/recaptcha/admin/create
 
 # the response from reCAPTCHA
