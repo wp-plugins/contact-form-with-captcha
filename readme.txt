@@ -4,7 +4,7 @@ Donate link: http://www.teknocrat.com/
 Tags: recaptcha form, recaptcha contact form, contact, form, contact form, recaptcha, antispam, captcha, contact form with captcha
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: 1.2
+Stable tag: 1.3
 
 Contact form with captcha plugin allows you to use a Google reCAPTCHA contact form on your blog. It requires PHP 5.0 or later.
 
@@ -18,7 +18,7 @@ in the Admin section (and other optional fields), and place the shortcode `[cfwc
 your blog.
 
 The form asks users for their name, email address, subject and message. The plugin will validate email address
-before sending the email.
+before sending the email. Labels can be modified based on your needs or language preferences.
 
 Related Links:
 
@@ -35,6 +35,14 @@ Related Links:
 4. Use the shortcode `[cfwc]` in any of your posts or pages
 
 == ChangeLog ==
+
+= Version 1.3 =
+
+* Option to change labels
+
+= Version 1.2 =
+
+* Minor fixes
 
 = Version 1.1 =
 

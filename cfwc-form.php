@@ -89,17 +89,50 @@ if(document.getElementById("recaptcha_response_field").value=="")
 <table>
        <tbody>
          <tr>
-             <td>Full Name:</td>
+             <td>
+             <? 
+                 if ($cfwc_full_name != null)
+                 {
+                     echo $cfwc_full_name ;
+                 }
+                 else
+                 {
+                     echo "Full Name:"; 
+                 }
+             ?>
+             </td>
              <td><input name="contact_name" type="text"></td>
          </tr>
          <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-             <td>E-mail:</td>
+             <td>
+             <? 
+                 if ($cfwc_e_mail != null)
+                 {
+                     echo $cfwc_e_mail ;
+                 }
+                 else
+                 {
+                     echo "E Mail:";
+                 }
+             ?>
+             </td>
              <td><input id="contact_email" name="contact_email" type="text"></td>
          </tr>
          <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-             <td>Subject:</td>
+             <td>
+             <? 
+                 if ($cfwc_subj != null)
+                 {
+                     echo $cfwc_subj ;
+                 }
+                 else
+                 {
+                     echo "Subject:"; 
+                 }
+             ?>
+             </td>
              <td>
              <?
                  if ($cfwc_subject == null)
@@ -121,7 +154,18 @@ if(document.getElementById("recaptcha_response_field").value=="")
          </tr>
          <tr><td>&nbsp;&nbsp;</td></tr>
          <tr>
-             <td>Message: </td>
+             <td>
+             <? 
+                 if ($cfwc_message != null)
+                 {
+                     echo $cfwc_message ;
+                 }
+                 else
+                 {
+                     echo "Message:"; 
+                 }
+             ?>
+             </td>
              <td><a name="s" id="s"></a><textarea name="contact_message" id="contact_message"></textarea></td>
          </tr>
          <tr><td>&nbsp;&nbsp;</td></tr>       
@@ -144,12 +188,15 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <tr>
             <td></td>
             <td>
-             <input name="Contact_Send" value="SendMessage" type="submit">
+             <input name="Contact_Send" value="Send Message" type="submit">
              <input name="SendMessage"  value="1" type="hidden">
             </td>
          </tr>
      </tbody>
 </table>
-
+<? 
+if ($cfwc_credit != "true")
+echo '<p>Powered by <a href="http://www.teknocrat.com">Technology blog</a></p>';
+?>
 </form>
 </div>

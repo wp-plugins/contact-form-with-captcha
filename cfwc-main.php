@@ -3,7 +3,7 @@
 Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teknocrat.com/
 Description: Creates a contact form with captcha. For more details you can visit <a href="http://www.teknocrat.com"><strong>Technology Blog</strong></a>.
-Version: 1.2
+Version: 1.3
 Date: 30 Sep 2011
 Author: Tecknocrat
 Author URI: http://www.teknocrat.com/
@@ -68,16 +68,23 @@ function plugin_admin_init(){
 	register_setting( 'cfwc_options_group', 'cfwc_private_key_value', 'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_public_key_value',  'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_to_value',          'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_full_name_value',   'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_e_mail_value',      'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_subj_value',        'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_message_value',     'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_subject_value',     'plugin_options_validate' );
-
+      register_setting( 'cfwc_options_group', 'cfwc_credit_value' );
 	add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'contact-form-with-captcha');
 
 	add_settings_field('cfwc_private_key_field_id', 'Specify your private key',  'cfwc_private_key_field_callback', 'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_public_key_field_id',  'Specify your public key',   'cfwc_public_key_field_callback',  'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_to_field_id',          'Specify your email address','cfwc_to_field_callback',          'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_full_name_field_id',   'Specify Full Name Label (Optional)'   ,'cfwc_full_name_field_callback',   'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_e_mail_field_id',      'Specify E-Mail Label (Optional)'      ,'cfwc_e_mail_field_callback',      'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_subj_field_id',        'Specify Subject Label (Optional)'     ,'cfwc_subj_field_callback',        'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_message_field_id',     'Specify Message Label (Optional)'     ,'cfwc_message_field_callback',     'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_subject_field_id',     'Specify predefined subject for drop down menu (Use : between different options)','cfwc_subject_field_callback', 'contact-form-with-captcha', 'plugin_main');
-
-
+      add_settings_field('cfwc_credit_field_id',      'Do not give credit to developer (Please consider <b>NOT</b> checking this box)' ,'cfwc_credit_field_callback', 'contact-form-with-captcha', 'plugin_main');
 }
 
 function plugin_section_text() {
@@ -89,21 +96,21 @@ function plugin_section_text() {
 function cfwc_to_field_callback() {
 
 	$options = get_option('cfwc_to_value');
-	echo "<input id='cfwc_to_field_id' name='cfwc_to_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+	echo "<input id='cfwc_to_field_id' name='cfwc_to_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
 
 }
 
 function cfwc_private_key_field_callback() {
 
 	$options = get_option('cfwc_private_key_value');
-	echo "<input id='cfwc_private_key_field_id' name='cfwc_private_key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+	echo "<input id='cfwc_private_key_field_id' name='cfwc_private_key_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
 
 }
 
 function cfwc_public_key_field_callback()  {
 
       $options = get_option('cfwc_public_key_value');
-      echo "<input id='cfwc_public_key_field_id' name='cfwc_public_key_value[text_string]' size='40' type='text' value='{$options['text_string']}' />";
+      echo "<input id='cfwc_public_key_field_id' name='cfwc_public_key_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
 }
 
 function cfwc_subject_field_callback()  {
@@ -112,6 +119,35 @@ function cfwc_subject_field_callback()  {
       echo "<input id='cfwc_subject_field_id' name='cfwc_subject_value[text_string]' size='100' type='text' value='{$options['text_string']}' />";
 }
 
+function cfwc_full_name_field_callback()  {
+
+      $options = get_option('cfwc_full_name_value');
+      echo "<input id='cfwc_full_name_field_id' name='cfwc_full_name_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
+}
+
+function cfwc_e_mail_field_callback()  {
+
+      $options = get_option('cfwc_e_mail_value');
+      echo "<input id='cfwc_e_mail_field_id' name='cfwc_e_mail_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
+}
+
+function cfwc_subj_field_callback()  {
+
+      $options = get_option('cfwc_subj_value');
+      echo "<input id='cfwc_subj_field_id' name='cfwc_subj_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
+}
+
+function cfwc_message_field_callback()  {
+
+      $options = get_option('cfwc_message_value');
+      echo "<input id='cfwc_message_field_id' name='cfwc_message_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
+}
+
+function cfwc_credit_field_callback()  {
+
+      $options = get_option('cfwc_credit_value');
+      echo "<input id='cfwc_credit_field_id' name='cfwc_credit_value[boolean]' type='checkbox' value='true' " ; if ("true" == $options['boolean']) {echo "checked='checked'"; } echo "/>";
+}
 
 // validate our options
 function plugin_options_validate($input) {
@@ -133,15 +169,28 @@ function cfwc_func( $atts ) {
 	), $atts ) );
       
       ob_start();
-      $privatekey   = get_option('cfwc_private_key_value');
-      $publickey    = get_option('cfwc_public_key_value');
-      $cfwc_to      = get_option('cfwc_to_value');
-      $cfwc_subject = get_option('cfwc_subject_value');
+      $privatekey     = get_option('cfwc_private_key_value');
+      $publickey      = get_option('cfwc_public_key_value');
+      $cfwc_to        = get_option('cfwc_to_value');
+      $cfwc_full_name = get_option('cfwc_full_name_value');
+      $cfwc_e_mail    = get_option('cfwc_e_mail_value');
+      $cfwc_subj      = get_option('cfwc_subj_value');
+      $cfwc_message   = get_option('cfwc_message_value');
+      $cfwc_subject   = get_option('cfwc_subject_value');
+      $cfwc_credit    = get_option('cfwc_credit_value');
 
-      $privatekey   = $privatekey['text_string'] ;
-      $publickey    = $publickey['text_string'] ;
-      $cfwc_to      = $cfwc_to['text_string'];
-      $cfwc_subject = $cfwc_subject['text_string'];
+
+
+
+      $privatekey     = $privatekey['text_string'] ;
+      $publickey      = $publickey['text_string'] ;
+      $cfwc_to        = $cfwc_to['text_string'];
+      $cfwc_full_name = $cfwc_full_name['text_string'];
+      $cfwc_e_mail    = $cfwc_e_mail['text_string'];
+      $cfwc_subj      = $cfwc_subj['text_string'];
+      $cfwc_message   = $cfwc_message['text_string'];
+      $cfwc_subject   = $cfwc_subject['text_string'];
+      $cfwc_credit    = $cfwc_credit['boolean'];
 
 
       include(WP_PLUGIN_DIR . '/contact-form-with-captcha/cfwc-form.php');
