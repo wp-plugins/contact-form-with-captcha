@@ -4,7 +4,7 @@ Donate link: http://www.teknocrat.com/
 Tags: recaptcha form, recaptcha contact form, contact, form, contact form, recaptcha, antispam, captcha, contact form with captcha
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: 1.3
+Stable tag: 1.4
 
 Contact form with captcha plugin allows you to use a Google reCAPTCHA contact form on your blog. It requires PHP 5.0 or later.
 
@@ -20,11 +20,13 @@ your blog.
 The form asks users for their name, email address, subject and message. The plugin will validate email address
 before sending the email. Labels can be modified based on your needs or language preferences.
 
+The plugin also supports multiple color themes for reCaptcha to meet your site or blog color schemes.
+
 Related Links:
 
 * <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Homepage</a>
-* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Support Page</a>
-* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Donation Page</a>
+* <a href="http://www.teknocrat.com" title="Wordpress contact form with captcha plugin">Plugin Site</a>
+* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Donation and Support Page</a>
 
 
 == Installation ==
@@ -35,6 +37,10 @@ Related Links:
 4. Use the shortcode `[cfwc]` in any of your posts or pages
 
 == ChangeLog ==
+
+= Version 1.4 =
+
+* Option to change reCaptcha color themes
 
 = Version 1.3 =
 

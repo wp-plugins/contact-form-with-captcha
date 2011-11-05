@@ -81,6 +81,12 @@ if(document.getElementById("recaptcha_response_field").value=="")
 }
 </script>
 
+<script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : '<? echo $cfwc_captcha_theme; ?>'
+ };
+ </script>
+
 <? echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('wpurl') . '/wp-content/plugins/contact-form-with-captcha/cfwc.css" />';  ?>
 
 <div id="cfwc_contactform">
