@@ -11,7 +11,7 @@ Copyright 2011-2020 Teknocrat
 
 #cfwc_contactform table    { margin: 0px; border: 0px;}
 
-#cfwc_contactform td       { border:0px; width: 100px; vertical-align:top; }
+#cfwc_contactform td       { border:0px; vertical-align:top; }
 
 #cfwc_contactform input    { width: 310px; }
 
