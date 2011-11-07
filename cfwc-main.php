@@ -2,9 +2,9 @@
 /*
 Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teknocrat.com/
-Description: Creates a contact form with captcha. For more details you can visit <a href="http://www.teknocrat.com"><strong>Technology Blog</strong></a>.
-Version: 1.4
-Date: 30 Sep 2011
+Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
+Version: 1.5
+Date: 07 Nov 2011
 Author: Tecknocrat
 Author URI: http://www.teknocrat.com/
 
@@ -75,6 +75,8 @@ function plugin_admin_init(){
 	register_setting( 'cfwc_options_group', 'cfwc_subject_value',     'plugin_options_validate' );
       register_setting( 'cfwc_options_group', 'cfwc_credit_value' );
       register_setting( 'cfwc_options_group', 'cfwc_captcha_theme_value' );
+      register_setting( 'cfwc_options_group', 'cfwc_form_theme_value' );
+
 
 	add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'contact-form-with-captcha');
 
@@ -88,6 +90,7 @@ function plugin_admin_init(){
 	add_settings_field('cfwc_subject_field_id',     'Specify predefined subject for drop down menu (Use : between different options)','cfwc_subject_field_callback', 'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_credit_field_id',      'Do not give credit to developer (Please consider <b>NOT</b> checking this box)' ,'cfwc_credit_field_callback', 'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_captcha_theme_field_id','Pick a reCaptcha theme' ,'cfwc_captcha_theme_field_callback', 'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_form_theme_field_id',  'Pick a form theme'       ,'cfwc_form_theme_field_callback',    'contact-form-with-captcha', 'plugin_main');
 
 }
 
@@ -161,6 +164,14 @@ function cfwc_captcha_theme_field_callback()  {
       echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='clean' " ; if ("clean" == $options['text_string']) {echo "checked='checked'"; } echo "/>Clean<br>";
 
 }
+function cfwc_form_theme_field_callback()  {
+
+      $options = get_option('cfwc_form_theme_value');
+      echo "<input id='cfwc_form_theme_field_id' name='cfwc_form_theme_value[text_string]' type='radio' value='parallel' " ; if ("parallel" == $options['text_string']) {echo "checked='checked'"; } echo "/>Parallel<br>";
+      echo "<input id='cfwc_form_theme_field_id' name='cfwc_form_theme_value[text_string]' type='radio' value='stacked' " ; if ("stacked" == $options['text_string']) {echo "checked='checked'"; } echo "/>Stacked<br>";
+
+}
+
 
 
 // validate our options
@@ -193,8 +204,7 @@ function cfwc_func( $atts ) {
       $cfwc_subject   = get_option('cfwc_subject_value');
       $cfwc_credit    = get_option('cfwc_credit_value');
       $cfwc_captcha_theme    = get_option('cfwc_captcha_theme_value');
-
-
+      $cfwc_form_theme    = get_option('cfwc_form_theme_value');
 
 
       $privatekey     = $privatekey['text_string'] ;
@@ -207,6 +217,8 @@ function cfwc_func( $atts ) {
       $cfwc_subject   = $cfwc_subject['text_string'];
       $cfwc_credit    = $cfwc_credit['boolean'];
       $cfwc_captcha_theme   = $cfwc_captcha_theme['text_string'];
+      $cfwc_form_theme   = $cfwc_form_theme['text_string'];
+
 
 
       include(WP_PLUGIN_DIR . '/contact-form-with-captcha/cfwc-form.php');
