@@ -172,7 +172,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <a name="s" id="s"></a><textarea name="contact_message" id="contact_message"></textarea></td>
+             <textarea name="contact_message" id="contact_message"></textarea></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
@@ -194,7 +194,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <tr>
             <td>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <input name="Contact_Send" value="Send Message" type="submit">
+             <input name="Contact_Send" value="<? if ($cfwc_button != null){ echo $cfwc_button ; } else { echo "Send Message";} ?> " type="submit">            
              <input name="SendMessage"  value="1" type="hidden">
             </td>
          </tr>
