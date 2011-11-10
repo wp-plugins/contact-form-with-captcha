@@ -17,4 +17,8 @@ Copyright 2011-2020 Teknocrat
 
 #cfwc_contactform textarea { width: 310px; height: 100px; }
 
-#cfwc_contactform p        { position:relative; float:right; font-size:8pt; font-family:times new roman; font-style:italic; color:#23238e; }
+#cfwc_contactform p        { position:relative; float:right; font-size:8px; font-family:times new roman; font-style:italic; color:#23238e; }
+
+#cimg img                  { background: none repeat scroll 0 0 transparent; margin: 0px; border: 0px; padding 0px;}
+
+#cimg a                    { color: transparent; font-size: 1px; text-decoration: none; margin: 0px; border: 0px; padding 0px;}
