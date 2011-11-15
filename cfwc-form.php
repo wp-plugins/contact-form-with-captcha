@@ -107,7 +107,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <input name="contact_name" type="text">
+             <input name="contact_name" type="text" value="<?php if(isset($_POST['contact_name'])) echo $_POST['contact_name']; ?>"/>
              </td>
          </tr>
          <tr/><tr/><tr/><tr/>
@@ -124,7 +124,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <input id="contact_email" name="contact_email" type="text"></td>
+             <input id="contact_email" name="contact_email" type="text" value="<?php if(isset($_POST['contact_email'])) echo $_POST['contact_email']; ?>"/></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
@@ -143,7 +143,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
              <?
                  if ($cfwc_subject == null)
                  {
-                     echo '<input name="contact_subject" class="cfwc_inputdata" type="text">';
+                     echo '<input name="contact_subject" class="cfwc_inputdata" type="text" value="'; if(isset($_POST['contact_subject'])) echo $_POST['contact_subject']; echo '"/>';
                  }
                  else
                  {
@@ -172,7 +172,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <textarea name="contact_message" id="contact_message"></textarea></td>
+             <textarea name="contact_message" id="contact_message" ><?php if(isset($_POST['contact_message'])) echo $_POST['contact_message']; ?></textarea></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
