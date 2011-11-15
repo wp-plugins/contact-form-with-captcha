@@ -90,6 +90,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
 <? echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('wpurl') . '/wp-content/plugins/contact-form-with-captcha/cfwc.css" />';  ?>
 
 <div id="cfwc_contactform">
+<!-- Contact form with Captcha - For more details visit http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html -->
 <form action="" method="POST" name="ContactForm" onsubmit="return check();">
 
 <table>
@@ -107,7 +108,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <input name="contact_name" type="text" value="<?php if(isset($_POST['contact_name'])) echo $_POST['contact_name']; ?>"/>
+             <input name="contact_name" type="text" value="<?php if(isset($_POST['contact_name']) && !$resp->is_valid ) echo $_POST['contact_name']; ?>"/>
              </td>
          </tr>
          <tr/><tr/><tr/><tr/>
@@ -124,7 +125,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <input id="contact_email" name="contact_email" type="text" value="<?php if(isset($_POST['contact_email'])) echo $_POST['contact_email']; ?>"/></td>
+             <input id="contact_email" name="contact_email" type="text" value="<?php if(isset($_POST['contact_email']) && !$resp->is_valid ) echo $_POST['contact_email']; ?>"/></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
@@ -143,7 +144,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
              <?
                  if ($cfwc_subject == null)
                  {
-                     echo '<input name="contact_subject" class="cfwc_inputdata" type="text" value="'; if(isset($_POST['contact_subject'])) echo $_POST['contact_subject']; echo '"/>';
+                     echo '<input name="contact_subject" class="cfwc_inputdata" type="text" value="'; if(isset($_POST['contact_subject']) && !$resp->is_valid ) echo $_POST['contact_subject']; echo '"/>';
                  }
                  else
                  {
@@ -172,7 +173,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
              ?>
              <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <textarea name="contact_message" id="contact_message" ><?php if(isset($_POST['contact_message'])) echo $_POST['contact_message']; ?></textarea></td>
+             <textarea name="contact_message" id="contact_message" ><?php if(isset($_POST['contact_message']) && !$resp->is_valid ) echo $_POST['contact_message']; ?></textarea></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
@@ -214,4 +215,5 @@ if(document.getElementById("recaptcha_response_field").value=="")
 </table>
 
 </form>
+<!-- Contact form with Captcha - For more details visit http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html -->
 </div>
