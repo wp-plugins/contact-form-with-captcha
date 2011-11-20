@@ -26,8 +26,7 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_client       = "PHP/" . phpversion();
 
                     // --- DEFINE HEADERS --- //
-
-                    $email_header  = "From:         " . $email_sender . "\r\n";
+                    $email_header  = "From:         " . $email_sender . " <" . $email_return_to . ">" . "\r\n";
                     $email_header .= "Reply-To:     " . $email_return_to . "\r\n";
                     $email_header .= "Return-Path:  " . $email_return_to . "\r\n";
                     $email_header .= "Content-type: " . $email_content_type . "\r\n";
@@ -38,8 +37,9 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_subject = '============= ' . $_POST["contact_subject"] . ' =============' ;
                     $email_contents = "<html>";
                     $email_contents .= "<h2>"                        . $_POST["contact_subject"] . "</h2>";
-                    $email_contents .= "<br><b>Sender:</b>         "         . $email_sender;
-                    $email_contents .= "<br><b>Sender Address:</b> " . $_SERVER["REMOTE_ADDR"];
+                    $email_contents .= "<br><b>Sender Name:</b>         "         . $email_sender;
+                    $email_contents .= "<br><b>Sender Email:</b>         "   . $email_return_to;
+                    $email_contents .= "<br><b>Sender IP Address:</b> " . $_SERVER["REMOTE_ADDR"];
                     $email_contents .= "<br><br>" . $_POST["contact_message"];    
                     $email_contents .= "</html>";
  
