@@ -26,7 +26,6 @@ Plugin allows webmasters to specify/configure tags or identifiers before and aft
 
 Related Links:
 
-* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Homepage</a>
 * Plugin Website - <a href="http://www.teknocrat.com/" title="Technology Blog">Technology Blog</a>
 * <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Donation and Support Page</a>
 * <a href="http://www.teknocrat.com/best-wordpress-plugins-for-new-blogs.html" title="Best wordpress plugins for new blogs">Best wordpress plugins for new blogs</a>
