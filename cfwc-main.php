@@ -3,8 +3,8 @@
 Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teknocrat.com/
 Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
-Version: 1.5.4
-Date: 19 Nov 2011
+Version: 1.5.5
+Date: 30 Nov 2011
 Author: Tecknocrat
 Author URI: http://www.teknocrat.com/
 
@@ -74,9 +74,12 @@ function plugin_admin_init(){
 	register_setting( 'cfwc_options_group', 'cfwc_message_value',     'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_button_value',      'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_subject_value',     'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_subject_prefix_value',     'plugin_options_validate' );
+	register_setting( 'cfwc_options_group', 'cfwc_subject_suffix_value',     'plugin_options_validate' );
       register_setting( 'cfwc_options_group', 'cfwc_credit_value' );
       register_setting( 'cfwc_options_group', 'cfwc_captcha_theme_value' );
       register_setting( 'cfwc_options_group', 'cfwc_form_theme_value' );
+
 
 
 	add_settings_section('plugin_main', 'Main Settings', 'plugin_section_text', 'contact-form-with-captcha');
@@ -90,9 +93,12 @@ function plugin_admin_init(){
       add_settings_field('cfwc_message_field_id',     'Specify Message Label (Optional)'     ,'cfwc_message_field_callback',     'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_button_field_id',      'Specify Button Label (Optional)'      ,'cfwc_button_field_callback',      'contact-form-with-captcha', 'plugin_main');      
       add_settings_field('cfwc_subject_field_id',     'Specify predefined subject for drop down menu (Use : between different options)','cfwc_subject_field_callback', 'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_subject_prefix_field_id','Specify a subject prefix (Optional)','cfwc_subject_prefix_field_callback', 'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_subject_suffix_field_id','Specify a subject suffix (Optional)','cfwc_subject_suffix_field_callback', 'contact-form-with-captcha', 'plugin_main');      
       add_settings_field('cfwc_credit_field_id',      'Do not give credit to developer (Please consider <b>NOT</b> checking this box)' ,'cfwc_credit_field_callback', 'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_captcha_theme_field_id','Pick a reCaptcha theme' ,'cfwc_captcha_theme_field_callback', 'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_form_theme_field_id',  'Pick a form theme'       ,'cfwc_form_theme_field_callback',    'contact-form-with-captcha', 'plugin_main');
+
 
 }
 
@@ -127,6 +133,19 @@ function cfwc_subject_field_callback()  {
       $options = get_option('cfwc_subject_value');
       echo "<input id='cfwc_subject_field_id' name='cfwc_subject_value[text_string]' size='100' type='text' value='{$options['text_string']}' />";
 }
+
+function cfwc_subject_prefix_field_callback()  {
+
+      $options = get_option('cfwc_subject_prefix_value');
+      echo "<input id='cfwc_subject_prefix_field_id' name='cfwc_subject_prefix_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
+}
+
+function cfwc_subject_suffix_field_callback()  {
+
+      $options = get_option('cfwc_subject_suffix_value');
+      echo "<input id='cfwc_subject_suffix_field_id' name='cfwc_subject_suffix_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
+}
+
 
 function cfwc_full_name_field_callback()  {
 
@@ -210,6 +229,8 @@ function cfwc_func( $atts ) {
       $cfwc_message   = get_option('cfwc_message_value');
       $cfwc_button    = get_option('cfwc_button_value');
       $cfwc_subject   = get_option('cfwc_subject_value');
+      $cfwc_subject_prefix = get_option('cfwc_subject_prefix_value');
+      $cfwc_subject_suffix = get_option('cfwc_subject_suffix_value');
       $cfwc_credit    = get_option('cfwc_credit_value');
       $cfwc_captcha_theme    = get_option('cfwc_captcha_theme_value');
       $cfwc_form_theme    = get_option('cfwc_form_theme_value');
@@ -224,6 +245,8 @@ function cfwc_func( $atts ) {
       $cfwc_message   = $cfwc_message['text_string'];
       $cfwc_button    = $cfwc_button['text_string'];
       $cfwc_subject   = $cfwc_subject['text_string'];
+      $cfwc_subject_prefix   = $cfwc_subject_prefix['text_string'];
+      $cfwc_subject_suffix   = $cfwc_subject_suffix['text_string'];
       $cfwc_credit    = $cfwc_credit['boolean'];
       $cfwc_captcha_theme   = $cfwc_captcha_theme['text_string'];
       $cfwc_form_theme   = $cfwc_form_theme['text_string'];

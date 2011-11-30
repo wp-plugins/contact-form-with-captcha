@@ -34,7 +34,7 @@ if ($_POST["recaptcha_response_field"]) {
 
                     // --- SUBJECT AND CONTENTS --- //
 
-                    $email_subject = '============= ' . $_POST["contact_subject"] . ' =============' ;
+                    $email_subject = $cfwc_subject_prefix . ' ' . $_POST["contact_subject"] . ' ' . $cfwc_subject_suffix ;
                     $email_contents = "<html>";
                     $email_contents .= "<h2>"                        . $_POST["contact_subject"] . "</h2>";
                     $email_contents .= "<br><b>Sender Name:</b>         "         . $email_sender;
@@ -203,7 +203,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
             <td>
              <? 
               if ($cfwc_credit != "true")
-              echo '<p>Powered by <a href="http://www.teknocrat.com">Technology blog</a></p>';
+              echo '<p class="credit">Powered by <a href="http://www.teknocrat.com">Technology blog</a></p>';
               else
               {
                   /*echo '<div id="cimg"><a title="Technology Blog" href="http://www.teknocrat.com/"><img src="' ; echo WP_PLUGIN_URL; echo '/contact-form-with-captcha/1.gif" alt="Technology Blog" /></a></div>';*/
