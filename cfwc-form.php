@@ -39,7 +39,7 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_contents .= "<h2>"                        . $_POST["contact_subject"] . "</h2>";
                     $email_contents .= "<br><b>Sender Name:</b>         "         . $email_sender;
                     $email_contents .= "<br><b>Sender Email:</b>         "   . $email_return_to;
-                    $email_contents .= "<br><b>Sender IP Address:</b> " . $_SERVER["REMOTE_ADDR"];
+                    $email_contents .= '<br><b>Sender IP Address:</b> ' . $_SERVER["REMOTE_ADDR"] . ' <strong>(<a href="http://www.teknocrat.com/find-my-ip-address.html">Find location for this IP</a></strong>)';
                     $email_contents .= "<br><br>" . $_POST["contact_message"];    
                     $email_contents .= "</html>";
  
