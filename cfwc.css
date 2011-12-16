@@ -13,6 +13,8 @@ Copyright 2011-2020 Teknocrat
 
 #cfwc_contactform td       { border:0px; vertical-align:top; }
 
+#cfwc_contactform tr       { border-collapse:separate; }
+
 #cfwc_contactform input    { width: 310px; }
 
 #cfwc_contactform textarea { width: 310px; height: 100px; }
