@@ -83,11 +83,11 @@ if(document.getElementById("recaptcha_response_field").value=="")
 
 <script type="text/javascript">
  var RecaptchaOptions = {
-    theme : '<? echo $cfwc_captcha_theme; ?>'
+    theme : '<?php echo $cfwc_captcha_theme; ?>'
  };
  </script>
 
-<? echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('wpurl') . '/wp-content/plugins/contact-form-with-captcha/cfwc.css" />';  ?>
+<?php echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('wpurl') . '/wp-content/plugins/contact-form-with-captcha/cfwc.css" />';  ?>
 
 <div id="cfwc_contactform">
 <!-- Contact form with Captcha - For more details visit http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html -->
@@ -97,7 +97,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
        <tbody>
          <tr>
              <td>
-             <? 
+             <?php 
                  if ($cfwc_full_name != null)
                  {
                      echo $cfwc_full_name ;
@@ -107,14 +107,14 @@ if(document.getElementById("recaptcha_response_field").value=="")
                      echo "Full Name:"; 
                  }
              ?>
-             <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
+             <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
              <input name="contact_name" type="text" value="<?php if(isset($_POST['contact_name']) && !$resp->is_valid ) echo $_POST['contact_name']; ?>"/>
              </td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
              <td>
-             <? 
+             <?php 
                  if ($cfwc_e_mail != null)
                  {
                      echo $cfwc_e_mail ;
@@ -124,13 +124,13 @@ if(document.getElementById("recaptcha_response_field").value=="")
                      echo "E Mail:";
                  }
              ?>
-             <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
+             <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
              <input id="contact_email" name="contact_email" type="text" value="<?php if(isset($_POST['contact_email']) && !$resp->is_valid ) echo $_POST['contact_email']; ?>"/></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
              <td>
-             <? 
+             <?php 
                  if ($cfwc_subj != null)
                  {
                      echo $cfwc_subj ;
@@ -140,8 +140,8 @@ if(document.getElementById("recaptcha_response_field").value=="")
                      echo "Subject:"; 
                  }
              ?>
-             <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <?
+             <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
+             <?php
                  if ($cfwc_subject == null)
                  {
                      echo '<input name="contact_subject" class="cfwc_inputdata" type="text" value="'; if(isset($_POST['contact_subject']) && !$resp->is_valid ) echo $_POST['contact_subject']; echo '"/>';
@@ -162,7 +162,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <tr/><tr/><tr/><tr/>
          <tr>
              <td>
-             <? 
+             <?php 
                  if ($cfwc_message != null)
                  {
                      echo $cfwc_message ;
@@ -172,14 +172,14 @@ if(document.getElementById("recaptcha_response_field").value=="")
                      echo "Message:"; 
                  }
              ?>
-             <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
+             <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
              <textarea name="contact_message" id="contact_message" ><?php if(isset($_POST['contact_message']) && !$resp->is_valid ) echo $_POST['contact_message']; ?></textarea></td>
          </tr>
          <tr/><tr/><tr/><tr/>
          <tr>
             <td>
-            <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-         <?
+            <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
+         <?php
             if ($publickey != null)
             {
                 echo recaptcha_get_html($publickey, $error);
@@ -194,14 +194,14 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <tr/><tr/><tr/><tr/>
          <tr>
             <td>
-             <? if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
-             <input name="Contact_Send" value="<? if ($cfwc_button != null){ echo $cfwc_button ; } else { echo "Send Message";} ?> " type="submit">            
+             <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
+             <input name="Contact_Send" value="<?php if ($cfwc_button != null){ echo $cfwc_button ; } else { echo "Send Message";} ?> " type="submit">            
              <input name="SendMessage"  value="1" type="hidden">
             </td>
          </tr>
          <tr>
             <td>
-             <? 
+             <?php 
               if ($cfwc_credit != "true")
               echo '<p class="credit">Powered by <a href="http://www.teknocrat.com">Technology blog</a></p>';
               else

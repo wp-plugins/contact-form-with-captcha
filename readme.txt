@@ -3,8 +3,8 @@ Contributors: zackhasit
 Donate link: http://www.teknocrat.com/
 Tags: recaptcha form, recaptcha contact form, contact, form, contact form, recaptcha, antispam, captcha, contact form with captcha
 Requires at least: 3.0
-Tested up to: 3.2
-Stable tag: 1.5.5
+Tested up to: 3.3
+Stable tag: 1.5.6
 
 Contact form with captcha plugin allows you to use a Google reCAPTCHA contact form on your blog. It requires PHP 5.0 or later.
 
