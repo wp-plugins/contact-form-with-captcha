@@ -3,8 +3,8 @@
 Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teknocrat.com/
 Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
-Version: 1.5.6
-Date: 26 Dec 2011
+Version: 1.5.7
+Date: 26 Feb 2012
 Author: Tecknocrat
 Author URI: http://www.teknocrat.com/
 

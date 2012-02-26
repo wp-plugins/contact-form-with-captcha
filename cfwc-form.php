@@ -22,19 +22,23 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_recipient    = $cfwc_to;
                     $email_sender       = $_POST["contact_name"];
                     $email_return_to    = $_POST["contact_email"];
-                    $email_content_type = "text/html; charset=us-ascii";
+                    $email_content_type = "text/html; charset=UTF-8";
                     $email_client       = "PHP/" . phpversion();
 
+                    // --- SUBJECT --- //
+                    $email_subject = $cfwc_subject_prefix . ' ' . $_POST["contact_subject"] . ' ' . $cfwc_subject_suffix ;
+
+
                     // --- DEFINE HEADERS --- //
-                    $email_header  = "From:         " . $email_sender . " <" . $email_return_to . ">" . "\r\n";
+                    $email_header  = "From:         =?UTF-8?B?".base64_encode($email_sender)."?=" . " <" . $email_return_to . ">" . "\r\n";
+                    //$email_header .= "Subject:      =?UTF-8?B?".base64_encode($email_subject)."?=" . "\r\n";
                     $email_header .= "Reply-To:     " . $email_return_to . "\r\n";
                     $email_header .= "Return-Path:  " . $email_return_to . "\r\n";
                     $email_header .= "Content-type: " . $email_content_type . "\r\n";
                     $email_header .= "X-Mailer:     " . $email_client . "\r\n";
 
-                    // --- SUBJECT AND CONTENTS --- //
+                    // --- CONTENTS --- //
 
-                    $email_subject = $cfwc_subject_prefix . ' ' . $_POST["contact_subject"] . ' ' . $cfwc_subject_suffix ;
                     $email_contents = "<html>";
                     $email_contents .= "<h2>"                        . $_POST["contact_subject"] . "</h2>";
                     $email_contents .= "<br><b>Sender Name:</b>         "         . $email_sender;
