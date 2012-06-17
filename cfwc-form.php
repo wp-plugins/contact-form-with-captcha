@@ -206,12 +206,12 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <tr>
             <td>
              <?php 
-              if ($cfwc_credit != "true")
+              /*if ($cfwc_credit != "true")
               echo '<p class="credit">Powered by <a href="http://www.teknocrat.com">Technology blog</a></p>';
               else
               {
-                  /*echo '<div id="cimg"><a title="Technology Blog" href="http://www.teknocrat.com/"><img src="' ; echo WP_PLUGIN_URL; echo '/contact-form-with-captcha/1.gif" alt="Technology Blog" /></a></div>';*/
-              }
+                  echo '<div id="cimg"><a title="Technology Blog" href="http://www.teknocrat.com/"><img src="' ; echo WP_PLUGIN_URL; echo '/contact-form-with-captcha/1.gif" alt="Technology Blog" /></a></div>';
+              }*/
             ?>
             </td>
          </tr>
