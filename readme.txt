@@ -1,10 +1,10 @@
 === Contact Form With Captcha ===
 Contributors: zackhasit
-Donate link: http://www.teknocrat.com/
+Donate link: http://www.teqlog.com/
 Tags: recaptcha form, recaptcha contact form, contact, form, contact form, recaptcha, antispam, captcha, contact form with captcha
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 1.5.8
+Stable tag: 1.5.9
 
 Contact form with captcha plugin allows you to use a Google reCAPTCHA contact form on your blog. It requires PHP 5.0 or later.
 
@@ -26,9 +26,9 @@ Plugin allows webmasters to specify/configure tags or identifiers before and aft
 
 Related Links:
 
-* Plugin Website - <a href="http://www.teknocrat.com/" title="Technology Blog">Technology Blog</a>
-* <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Donation and Support Page</a>
-* <a href="http://www.teknocrat.com/best-wordpress-plugins-for-new-blogs.html" title="Best wordpress plugins for new blogs">Best wordpress plugins for new blogs</a>
+* Plugin Website - <a href="http://www.teqlog.com/" title="Technology Blog">Technology Blog</a>
+* <a href="http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html" title="Wordpress contact form with captcha plugin">Plugin Donation and Support Page</a>
+* <a href="http://www.teqlog.com/best-wordpress-plugins-for-new-blogs.html" title="Best wordpress plugins for new blogs">Best wordpress plugins for new blogs</a>
 
 == Installation ==
 
