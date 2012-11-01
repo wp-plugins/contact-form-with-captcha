@@ -43,7 +43,7 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_contents .= "<h2>"                        . $_POST["contact_subject"] . "</h2>";
                     $email_contents .= "<br><b>Sender Name:</b>         "         . $email_sender;
                     $email_contents .= "<br><b>Sender Email:</b>         "   . $email_return_to;
-                    $email_contents .= '<br><b>Sender IP Address:</b> ' . $_SERVER["REMOTE_ADDR"] . ' <strong>(<a href="http://www.teknocrat.com/find-my-ip-address.html">Find location for this IP</a></strong>)';
+                    $email_contents .= '<br><b>Sender IP Address:</b> ' . $_SERVER["REMOTE_ADDR"] . ' <strong>(<a href="http://www.teqlog.com/find-my-ip-address.html">Find location for this IP</a></strong>)';
                     $email_contents .= "<br><br>" . $_POST["contact_message"];    
                     $email_contents .= "</html>";
  
@@ -94,7 +94,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
 <?php echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('wpurl') . '/wp-content/plugins/contact-form-with-captcha/cfwc.css" />';  ?>
 
 <div id="cfwc_contactform">
-<!-- Contact form with Captcha - For more details visit http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html -->
+<!-- Contact form with Captcha - For more details visit http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html -->
 <form action="" method="POST" name="ContactForm" onsubmit="return check();">
 
 <table>
@@ -207,10 +207,10 @@ if(document.getElementById("recaptcha_response_field").value=="")
             <td>
              <?php 
               /*if ($cfwc_credit != "true")
-              echo '<p class="credit">Powered by <a href="http://www.teknocrat.com">Technology blog</a></p>';
+              echo '<p class="credit">Powered by <a href="http://www.teqlog.com">Technology blog</a></p>';
               else
               {
-                  echo '<div id="cimg"><a title="Technology Blog" href="http://www.teknocrat.com/"><img src="' ; echo WP_PLUGIN_URL; echo '/contact-form-with-captcha/1.gif" alt="Technology Blog" /></a></div>';
+                  echo '<div id="cimg"><a title="Technology Blog" href="http://www.teqlog.com/"><img src="' ; echo WP_PLUGIN_URL; echo '/contact-form-with-captcha/1.gif" alt="Technology Blog" /></a></div>';
               }*/
             ?>
             </td>
@@ -219,5 +219,5 @@ if(document.getElementById("recaptcha_response_field").value=="")
 </table>
 
 </form>
-<!-- Contact form with Captcha - For more details visit http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html -->
+<!-- Contact form with Captcha - For more details visit http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html -->
 </div>
