@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Contact Form With Captcha
-Plugin URI: http://www.teknocrat.com/
-Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teknocrat.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
-Version: 1.5.7
+Plugin URI: http://www.teqlog.com/
+Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
+Version: 1.5.9
 Date: 26 Feb 2012
-Author: Tecknocrat
-Author URI: http://www.teknocrat.com/
+Author: Teqlog
+Author URI: http://www.teqlog.com/
 
-    Copyright 2011  Teknocrat  (email : teknocrat.com@gmail.com)
+    Copyright 2011  Teqlog  (email : teknocrat.com@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
