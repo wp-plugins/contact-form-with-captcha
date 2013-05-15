@@ -17,7 +17,8 @@ if ($_POST["recaptcha_response_field"]) {
         if ($resp->is_valid) {
                 
                 {   
-                          
+                    $_POST = str_replace("\\","",$_POST);
+      
                     // --- CONFIG PARAMETERS --- //
                     $email_recipient    = $cfwc_to;
                     $email_sender       = $_POST["contact_name"];
@@ -38,10 +39,10 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_header .= "X-Mailer:     " . $email_client . "\r\n";
 
                     // --- CONTENTS --- //
-
+                    
                     $email_contents = "<html>";
-                    $email_contents .= "<h2>"                        . $_POST["contact_subject"] . "</h2>";
-                    $email_contents .= "<br><b>Sender Name:</b>         "         . $email_sender;
+                    $email_contents .= "<h2>"                                . $_POST["contact_subject"] . "</h2>";
+                    $email_contents .= "<br><b>Sender Name:</b>         "    . $email_sender;
                     $email_contents .= "<br><b>Sender Email:</b>         "   . $email_return_to;
                     $email_contents .= '<br><b>Sender IP Address:</b> ' . $_SERVER["REMOTE_ADDR"] . ' <strong>(<a href="http://www.teqlog.com/find-my-ip-address.html">Find location for this IP</a></strong>)';
                     $email_contents .= "<br><br>" . $_POST["contact_message"];    
