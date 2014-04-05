@@ -194,7 +194,7 @@ function cfwc_button_field_callback()  {
 function cfwc_credit_field_callback()  {
 
       $options = get_option('cfwc_credit_value');
-      echo "<input id='cfwc_credit_field_id' name='cfwc_credit_value[boolean]' type='checkbox' value='true' " ; if ("true" == $options['boolean']) {echo "checked='checked'"; } echo "/>";
+      echo "<input id='cfwc_credit_field_id' name='cfwc_credit_value[text_string]' type='checkbox' value='true' " ; if ("true" == $options['text_string']) {echo "checked='checked'"; } echo "/>";
 }
 function cfwc_captcha_theme_field_callback()  {
 
@@ -266,7 +266,7 @@ function cfwc_func( $atts ) {
       $cfwc_subject   = $cfwc_subject['text_string'];
       $cfwc_subject_prefix   = $cfwc_subject_prefix['text_string'];
       $cfwc_subject_suffix   = $cfwc_subject_suffix['text_string'];
-      $cfwc_credit    = $cfwc_credit['boolean'];
+      $cfwc_credit    = $cfwc_credit['text_string'];
       $cfwc_captcha_theme   = $cfwc_captcha_theme['text_string'];
       $cfwc_form_theme   = $cfwc_form_theme['text_string'];
 
