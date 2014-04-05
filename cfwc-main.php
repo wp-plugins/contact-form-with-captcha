@@ -3,12 +3,12 @@
 Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teqlog.com/
 Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
-Version: 1.5.9
-Date: 26 Feb 2012
+Version: 1.6.0
+Date: 04 Apr 2014
 Author: Teqlog
 Author URI: http://www.teqlog.com/
 
-    Copyright 2011  Teqlog  (email : teknocrat.com@gmail.com)
+    Copyright 2014  Teqlog  (email : teknocrat.com@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -68,6 +68,8 @@ function plugin_admin_init(){
 	register_setting( 'cfwc_options_group', 'cfwc_private_key_value', 'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_public_key_value',  'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_to_value',          'plugin_options_validate' );
+      register_setting( 'cfwc_options_group', 'cfwc_success_msg_value', 'plugin_options_validate' );
+      register_setting( 'cfwc_options_group', 'cfwc_failure_msg_value',   'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_full_name_value',   'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_e_mail_value',      'plugin_options_validate' );
 	register_setting( 'cfwc_options_group', 'cfwc_subj_value',        'plugin_options_validate' );
@@ -87,6 +89,8 @@ function plugin_admin_init(){
 	add_settings_field('cfwc_private_key_field_id', 'Specify your private key',  'cfwc_private_key_field_callback', 'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_public_key_field_id',  'Specify your public key',   'cfwc_public_key_field_callback',  'contact-form-with-captcha', 'plugin_main');
 	add_settings_field('cfwc_to_field_id',          'Specify your email address','cfwc_to_field_callback',          'contact-form-with-captcha', 'plugin_main');
+       add_settings_field('cfwc_success_msg_field_id',   'Specify Success Message (Optional)'   ,'cfwc_success_msg_field_callback',   'contact-form-with-captcha', 'plugin_main');
+      add_settings_field('cfwc_failure_msg_field_id',   'Specify Failure Message (Optional)'   ,'cfwc_failure_msg_field_callback',   'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_full_name_field_id',   'Specify Full Name Label (Optional)'   ,'cfwc_full_name_field_callback',   'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_e_mail_field_id',      'Specify E-Mail Label (Optional)'      ,'cfwc_e_mail_field_callback',      'contact-form-with-captcha', 'plugin_main');
       add_settings_field('cfwc_subj_field_id',        'Specify Subject Label (Optional)'     ,'cfwc_subj_field_callback',        'contact-form-with-captcha', 'plugin_main');
@@ -146,6 +150,17 @@ function cfwc_subject_suffix_field_callback()  {
       echo "<input id='cfwc_subject_suffix_field_id' name='cfwc_subject_suffix_value[text_string]' size='50' type='text' value='{$options['text_string']}' />";
 }
 
+function cfwc_success_msg_field_callback()  {
+
+      $options = get_option('cfwc_success_msg_value');
+      echo "<input id='cfwc_success_msg_field_id' name='cfwc_success_msg_value[text_string]' size='100' type='text' value='{$options['text_string']}' />";
+}
+
+function cfwc_failure_msg_field_callback()  {
+
+      $options = get_option('cfwc_failure_msg_value');
+      echo "<input id='cfwc_failure_msg_field_id' name='cfwc_failure_msg_value[text_string]' size='100' type='text' value='{$options['text_string']}' />";
+}
 
 function cfwc_full_name_field_callback()  {
 
@@ -223,6 +238,8 @@ function cfwc_func( $atts ) {
       $privatekey     = get_option('cfwc_private_key_value');
       $publickey      = get_option('cfwc_public_key_value');
       $cfwc_to        = get_option('cfwc_to_value');
+      $cfwc_success_msg = get_option('cfwc_success_msg_value');
+      $cfwc_failure_msg = get_option('cfwc_failure_msg_value');
       $cfwc_full_name = get_option('cfwc_full_name_value');
       $cfwc_e_mail    = get_option('cfwc_e_mail_value');
       $cfwc_subj      = get_option('cfwc_subj_value');
@@ -239,6 +256,8 @@ function cfwc_func( $atts ) {
       $privatekey     = $privatekey['text_string'] ;
       $publickey      = $publickey['text_string'] ;
       $cfwc_to        = $cfwc_to['text_string'];
+      $cfwc_success_msg = $cfwc_success_msg['text_string'];
+      $cfwc_failure_msg = $cfwc_failure_msg['text_string'];
       $cfwc_full_name = $cfwc_full_name['text_string'];
       $cfwc_e_mail    = $cfwc_e_mail['text_string'];
       $cfwc_subj      = $cfwc_subj['text_string'];

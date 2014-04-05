@@ -49,12 +49,26 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_contents .= "</html>";
  
                     if (mail($email_recipient, $email_subject, $email_contents, $email_header, '-f'.$email_return_to))
-                    {      
-                        echo "<center><h2>Thank you for contacting us!</h2></center>";
+                    {     
+                        if ($cfwc_success_msg != null)
+                        {
+                            echo "<center><h2>" . $cfwc_success_msg . "</h2></center>";
+                        }
+                        else
+                        {
+                            echo "<center><h2>Thank you for contacting us!</h2></center>";
+                        }
                     }       
                     else 
-                    {      
-                        echo "<center><h2>Can't send email to Administrator. Please try later</h2></center>";      
+                    {     
+                        if ($cfwc_failure_msg != null)
+                        {
+                            echo "<center><h2>" . $cfwc_failure_msg . "</h2></center>";
+                        }
+                        else
+                        {
+                            echo "<center><h2>Can't send email to Administrator. Please try later</h2></center>";
+                        }      
                     } 
                 }
         } 
