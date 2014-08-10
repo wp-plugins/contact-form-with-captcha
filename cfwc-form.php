@@ -31,7 +31,9 @@ if ($_POST["recaptcha_response_field"]) {
 
 
                     // --- DEFINE HEADERS --- //
-                    $email_header  = "From:         =?UTF-8?B?".base64_encode($email_sender)."?=" . " <admin@" . gethostname() . ">" . "\r\n";
+
+                    $email_header  = "From:         =?UTF-8?B?".base64_encode($email_sender)."?=" . " <do_not_reply@" . $_SERVER['SERVER_NAME'] . ">" . "\r\n";
+
                     //$email_header .= "Subject:      =?UTF-8?B?".base64_encode($email_subject)."?=" . "\r\n";
 
                     $email_header .= "Reply-To:     " . $email_return_to . "\r\n";
