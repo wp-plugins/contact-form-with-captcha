@@ -31,8 +31,9 @@ if ($_POST["recaptcha_response_field"]) {
 
 
                     // --- DEFINE HEADERS --- //
-                    $email_header  = "From:         =?UTF-8?B?".base64_encode($email_sender)."?=" . " <" . $email_return_to . ">" . "\r\n";
+                    $email_header  = "From:         =?UTF-8?B?".base64_encode($email_sender)."?=" . " <admin@" . gethostname() . ">" . "\r\n";
                     //$email_header .= "Subject:      =?UTF-8?B?".base64_encode($email_subject)."?=" . "\r\n";
+
                     $email_header .= "Reply-To:     " . $email_return_to . "\r\n";
                     $email_header .= "Return-Path:  " . $email_return_to . "\r\n";
                     $email_header .= "Content-type: " . $email_content_type . "\r\n";
@@ -48,7 +49,7 @@ if ($_POST["recaptcha_response_field"]) {
                     $email_contents .= "<br><br>" . $_POST["contact_message"];    
                     $email_contents .= "</html>";
  
-                    if (mail($email_recipient, $email_subject, $email_contents, $email_header, '-f'.$email_return_to))
+                    if (mail($email_recipient, $email_subject, $email_contents, $email_header))
                     {     
                         if ($cfwc_success_msg != null)
                         {
