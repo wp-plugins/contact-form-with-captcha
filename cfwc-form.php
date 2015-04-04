@@ -204,7 +204,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
          <?php
             if ($publickey != null)
             {
-                echo recaptcha_get_html($publickey, $error);
+                echo recaptcha_get_html($publickey, $error, is_ssl());
             }
             else
             {
