@@ -194,22 +194,25 @@ function cfwc_button_field_callback()  {
 function cfwc_credit_field_callback()  {
 
       $options = get_option('cfwc_credit_value');
-      echo "<input id='cfwc_credit_field_id' name='cfwc_credit_value[text_string]' type='checkbox' value='true' " ; if ("true" == $options['text_string']) {echo "checked='checked'"; } echo "/>";
+
+      echo "<input id='cfwc_credit_field_id' name='cfwc_credit_value[text_string]' type='checkbox' value='true' " ; if (isset($options['text_string']) && "true" == $options['text_string']) {echo "checked='checked'"; } echo "/>";
 }
 function cfwc_captcha_theme_field_callback()  {
 
       $options = get_option('cfwc_captcha_theme_value');
-      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='red' " ; if ("red" == $options['text_string']) {echo "checked='checked'"; } echo "/>Red<br>";
-      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='white' " ; if ("white" == $options['text_string']) {echo "checked='checked'"; } echo "/>white<br>";
-      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='blackglass' " ; if ("blackglass" == $options['text_string']) {echo "checked='checked'"; } echo "/>Blackglass<br>";
-      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='clean' " ; if ("clean" == $options['text_string']) {echo "checked='checked'"; } echo "/>Clean<br>";
+
+      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='red' " ; if (isset($options['text_string']) && "red" == $options['text_string']) {echo "checked='checked'"; } echo "/>Red<br>";
+      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='white' " ; if (isset($options['text_string']) && "white" == $options['text_string']) {echo "checked='checked'"; } echo "/>white<br>";
+      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='blackglass' " ; if (isset($options['text_string']) && "blackglass" == $options['text_string']) {echo "checked='checked'"; } echo "/>Blackglass<br>";
+      echo "<input id='cfwc_captcha_theme_field_id' name='cfwc_captcha_theme_value[text_string]' type='radio' value='clean' " ; if (isset($options['text_string']) && "clean" == $options['text_string']) {echo "checked='checked'"; } echo "/>Clean<br>";
 
 }
 function cfwc_form_theme_field_callback()  {
 
       $options = get_option('cfwc_form_theme_value');
-      echo "<input id='cfwc_form_theme_field_id' name='cfwc_form_theme_value[text_string]' type='radio' value='parallel' " ; if ("parallel" == $options['text_string']) {echo "checked='checked'"; } echo "/>Parallel<br>";
-      echo "<input id='cfwc_form_theme_field_id' name='cfwc_form_theme_value[text_string]' type='radio' value='stacked' " ; if ("stacked" == $options['text_string']) {echo "checked='checked'"; } echo "/>Stacked<br>";
+
+      echo "<input id='cfwc_form_theme_field_id' name='cfwc_form_theme_value[text_string]' type='radio' value='parallel' " ; if (isset($options['text_string']) && "parallel" == $options['text_string']) {echo "checked='checked'"; } echo "/>Parallel<br>";
+      echo "<input id='cfwc_form_theme_field_id' name='cfwc_form_theme_value[text_string]' type='radio' value='stacked' " ; if (isset($options['text_string']) && "stacked" == $options['text_string']) {echo "checked='checked'"; } echo "/>Stacked<br>";
 
 }
 
@@ -268,7 +271,7 @@ function cfwc_func( $atts ) {
       $cfwc_subject_suffix   = $cfwc_subject_suffix['text_string'];
       //$cfwc_credit    = $cfwc_credit['text_string'];
       $cfwc_captcha_theme   = $cfwc_captcha_theme['text_string'];
-      $cfwc_form_theme   = $cfwc_form_theme['text_string'];
+      $cfwc_form_theme   = isset($cfwc_form_theme['text_string']) ? $cfwc_form_theme['text_string'] : '';
 
 
 
