@@ -3,8 +3,8 @@
 Plugin Name: Contact Form With Captcha
 Plugin URI: http://www.teqlog.com/
 Description: Creates a contact form with captcha. For more details you can visit plugin page <a href="http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html"><strong>CFWC Plugin home page</strong></a>.
-Version: 1.6.1
-Date: 07 Jan 2015
+Version: 1.6.2
+Date: 07 July 2015
 Author: Teqlog
 Author URI: http://www.teqlog.com/
 
