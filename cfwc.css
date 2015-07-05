@@ -15,9 +15,9 @@ Copyright 2011-2020 Teqlog
 
 #cfwc_contactform tr       { border-collapse:separate; }
 
-#cfwc_contactform input    { width: 310px; }
+#cfwc_contactform input    { width: 275px; }
 
-#cfwc_contactform textarea { width: 310px; height: 100px; }
+#cfwc_contactform textarea { width: 275px; height: 100px; }
 
 #cfwc_contactform p.credit { position:relative; float:right; font-size:8px; font-family:times new roman; font-style:italic; color:#23238e; }
 

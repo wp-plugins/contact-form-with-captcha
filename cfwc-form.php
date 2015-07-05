@@ -1,20 +1,26 @@
 <?php
+/*
 if(!is_callable('recaptcha_check_answer')) require_once(WP_PLUGIN_DIR . '/contact-form-with-captcha/captcha/recaptchalib.php');
-// Get a key from https://www.google.com/recaptcha/admin/create
 
-# the response from reCAPTCHA
 $resp = null;
-# the error code from reCAPTCHA, if any
 $error = null;
 
-# was there a reCAPTCHA response?
 if ($_POST["recaptcha_response_field"]) {
         $resp = recaptcha_check_answer ($privatekey,
                                         $_SERVER["REMOTE_ADDR"],
                                         $_POST["recaptcha_challenge_field"],
                                         $_POST["recaptcha_response_field"]);
+*/
 
-        if ($resp->is_valid) {
+require_once WP_PLUGIN_DIR . '/contact-form-with-captcha/captcha/autoload.php';
+
+if (isset($_POST['g-recaptcha-response']))
+{
+       $recaptcha = new \ReCaptcha\ReCaptcha($privatekey);
+
+       $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+
+        if ($resp->isSuccess()) {
                 
                 {   
                     $_POST = str_replace("\\","",$_POST);
@@ -76,10 +82,23 @@ if ($_POST["recaptcha_response_field"]) {
                 }
         } 
         else 
-        {
-                # set the error code so that we can display it
-                $error = $resp->error;
-                echo "<center><h2>Incorrect Captcha!</h2></center>";
+        {?>
+
+
+
+<h2>Something went wrong</h2>
+        <p>The following error was returned: <?php
+            foreach ($resp->getErrorCodes() as $code) {
+                echo '<tt>' , $code , '</tt> ';
+            }
+            ?></p>
+        <p>Check the error code reference at <tt><a href="https://developers.google.com/recaptcha/docs/verify#error-code-reference">https://developers.google.com/recaptcha/docs/verify#error-code-reference</a></tt>.
+        <p><strong>Note:</strong> Error code <tt>missing-input-response</tt> may mean the user just didn't complete the reCAPTCHA.</p>
+
+            
+        <?php
+           echo "<center><h2>Incorrect Captcha!</h2></center>";
+        
         }
 }
 
@@ -203,8 +222,12 @@ if(document.getElementById("recaptcha_response_field").value=="")
             <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
          <?php
             if ($publickey != null)
-            {
-                echo recaptcha_get_html($publickey, $error);
+            {?>
+                <div class="g-recaptcha" data-sitekey="<?php echo $publickey; ?>"></div>
+            <script type="text/javascript"
+                    src="https://www.google.com/recaptcha/api.js?hl=en">
+            </script>
+            <?php
             }
             else
             {
